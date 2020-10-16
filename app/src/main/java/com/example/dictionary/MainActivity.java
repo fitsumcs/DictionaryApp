@@ -1,6 +1,7 @@
 package com.example.dictionary;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -19,6 +20,8 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    MenuItem menuItemSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +54,34 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        menuItemSetting = menu.findItem(R.id.action_settings);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+
+        int id = menuItem.getItemId();
+
+        if(id == R.id.af_to_en)
+        {
+          menuItemSetting.setIcon(getDrawable(R.drawable.ic_baseline_home));
+        }
+        if(id == R.id.en_to_af)
+        {
+            menuItemSetting.setIcon(getDrawable(R.drawable.ic_baseline_help));
+
+        }
+        if(id == R.id.af_to_af)
+        {
+            menuItemSetting.setIcon(getDrawable(R.drawable.ic_baseline_rate_review));
+
+        }
+
+
+        return  super.onOptionsItemSelected(menuItem);
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {
