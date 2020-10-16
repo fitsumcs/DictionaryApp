@@ -55,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         menuItemSetting = menu.findItem(R.id.action_settings);
+
+        String theId = StateStorage.getState(this,"dic_type");
+        if(theId != null)
+        {
+            onOptionsItemSelected(menu.findItem( Integer.valueOf(theId)));
+        }
         return true;
     }
     @Override
@@ -62,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
     {
 
         int id = menuItem.getItemId();
+
+        StateStorage.saveStae(this,"dic_type",String.valueOf(id));
 
         if(id == R.id.af_to_en)
         {
