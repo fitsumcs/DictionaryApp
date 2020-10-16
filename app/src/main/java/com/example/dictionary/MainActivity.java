@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DictonrayFragment dictonrayFragment;
     BookmarkFragment bookmarkFragment;
+    AboutFragment aboutFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         dictonrayFragment = new DictonrayFragment();
         bookmarkFragment = new BookmarkFragment();
+        aboutFragment = new AboutFragment();
 
         navigateFragment(dictonrayFragment,true);
 
@@ -61,7 +63,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int id = menuItem.getItemId();
 
+        if(id == R.id.nav_home)
+        {
+            navigateFragment(dictonrayFragment,false);
+        }
 
+        if(id == R.id.nav_bookmark)
+        {
+            navigateFragment(bookmarkFragment,false);
+        }
+        if(id == R.id.nav_about)
+        {
+            navigateFragment(aboutFragment,false);
+        }
         DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
