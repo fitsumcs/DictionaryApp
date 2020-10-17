@@ -4,16 +4,19 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 public class BookmarkFragment extends Fragment {
 
 
+    private  ItemListener itemListener;
 
     public BookmarkFragment() {
         // Required empty public constructor
@@ -23,6 +26,25 @@ public class BookmarkFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button button = (Button)view.findViewById(R.id.button2);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(itemListener!=null)
+                {
+                    itemListener.onItemClick();
+                }
+
+            }
+        });
 
     }
 
@@ -41,5 +63,11 @@ public class BookmarkFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    //item Listener
+    public  void  setItemListener(ItemListener listener)
+    {
+        this.itemListener = listener;
     }
 }

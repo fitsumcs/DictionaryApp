@@ -6,11 +6,29 @@
     tools:context=".BookmarkFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Bookmark Fragment "
-        android:gravity="center"
-        />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="182dp"
+            android:layout_height="63dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="166dp"
+            android:gravity="center"
+            android:text="Bookmark Fragment " />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="179dp"
+            android:layout_height="67dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="117dp"
+            android:layout_marginTop="256dp"
+            android:text="Go to Detail " />
+    </RelativeLayout>
 
 </FrameLayout>

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     BookmarkFragment bookmarkFragment;
     AboutFragment aboutFragment;
     HelpFragment helpFragment;
+    DetailFragment detailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bookmarkFragment = new BookmarkFragment();
         aboutFragment = new AboutFragment();
         helpFragment = new HelpFragment();
+        detailFragment= new DetailFragment();
+
+        dictonrayFragment.setItemListener(new ItemListener() {
+            @Override
+            public void onItemClick() {
+                navigateFragment(detailFragment,false);
+            }
+        });
+        bookmarkFragment.setItemListener(new ItemListener() {
+            @Override
+            public void onItemClick() {
+                navigateFragment(detailFragment,false);
+            }
+        });
+
 
         navigateFragment(dictonrayFragment,true);
 
