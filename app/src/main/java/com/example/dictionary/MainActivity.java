@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     BookmarkFragment bookmarkFragment;
     AboutFragment aboutFragment;
     HelpFragment helpFragment;
-    DetailFragment detailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,20 +56,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bookmarkFragment = new BookmarkFragment();
         aboutFragment = new AboutFragment();
         helpFragment = new HelpFragment();
-        detailFragment= new DetailFragment();
 
         dictonrayFragment.setItemListener(new ItemListener() {
             @Override
             public void onItemClick(String value) {
-                Toast.makeText(MainActivity.this,value,Toast.LENGTH_SHORT).show();
-                navigateFragment(detailFragment,false);
+              //  Toast.makeText(MainActivity.this,value,Toast.LENGTH_SHORT).show();
+                navigateFragment(DetailFragment.getInstance(value),false);
             }
         });
         bookmarkFragment.setItemListener(new ItemListener() {
             @Override
             public void onItemClick(String value) {
-                Toast.makeText(MainActivity.this,value,Toast.LENGTH_SHORT).show();
-                navigateFragment(detailFragment,false);
+                //Toast.makeText(MainActivity.this,value,Toast.LENGTH_SHORT).show();
+                navigateFragment(DetailFragment.getInstance(value),false);
             }
         });
 
