@@ -11,15 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class DetailFragment extends Fragment {
+public class HelpFragment extends Fragment {
 
 
 
-    public DetailFragment() {
+    public HelpFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,7 @@ public class DetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false);
+        return inflater.inflate(R.layout.fragment_help, container, false);
     }
 
     @Override
