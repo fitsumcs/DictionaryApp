@@ -18,6 +18,8 @@ public class BookmarkFragment extends Fragment {
 
     private  ItemListener itemListener;
 
+    String boomarkText = "From Book Mark";
+
     public BookmarkFragment() {
         // Required empty public constructor
     }
@@ -40,7 +42,7 @@ public class BookmarkFragment extends Fragment {
 
                 if(itemListener!=null)
                 {
-                    itemListener.onItemClick();
+                    itemListener.onItemClick(boomarkText);
                 }
 
             }

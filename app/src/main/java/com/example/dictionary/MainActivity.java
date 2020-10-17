@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -60,13 +61,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         dictonrayFragment.setItemListener(new ItemListener() {
             @Override
-            public void onItemClick() {
+            public void onItemClick(String value) {
+                Toast.makeText(MainActivity.this,value,Toast.LENGTH_SHORT).show();
                 navigateFragment(detailFragment,false);
             }
         });
         bookmarkFragment.setItemListener(new ItemListener() {
             @Override
-            public void onItemClick() {
+            public void onItemClick(String value) {
+                Toast.makeText(MainActivity.this,value,Toast.LENGTH_SHORT).show();
                 navigateFragment(detailFragment,false);
             }
         });

@@ -18,6 +18,8 @@ public class DictonrayFragment extends Fragment {
 
     private  ItemListener itemListener;
 
+    String testText = "Hello Text Test from Dict Fragametn !!";
+
     public DictonrayFragment() {
         // Required empty public constructor
     }
@@ -41,7 +43,7 @@ public class DictonrayFragment extends Fragment {
 
                 if(itemListener!=null)
                 {
-                    itemListener.onItemClick();
+                    itemListener.onItemClick(testText);
                 }
 
             }
