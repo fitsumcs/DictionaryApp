@@ -10,7 +10,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 
 public class DictonrayFragment extends Fragment {
@@ -35,17 +38,21 @@ public class DictonrayFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button button = (Button)view.findViewById(R.id.button);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        ListView dicList = view.findViewById(R.id.listview);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getListofWords());
+
+        dicList.setAdapter(adapter);
+
+        //item click
+        dicList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(itemListener!=null)
                 {
-                    itemListener.onItemClick(testText);
+                    itemListener.onItemClick(getListofWords()[i]);
                 }
-
             }
         });
 
@@ -72,6 +79,24 @@ public class DictonrayFragment extends Fragment {
     public  void  setItemListener(ItemListener listener)
     {
         this.itemListener = listener;
+    }
+
+    //get List item
+    public  String[] getListofWords()
+    {
+        String[] array = new String[]{
+                "a","b","c","d","e",
+                "a","b","c","d","e",
+                "a","b","c","d","e",
+                "a","b","c","d","e",
+                "a","b","c","d","e"
+
+
+
+        };
+
+        return  array;
+
     }
 
 }
